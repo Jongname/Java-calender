@@ -19,17 +19,21 @@ public class Calender {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		
-		
-		
-		
+		Calender cal = new Calender();
 		//숫자를 입력받아 해당 달의 최대 일수를 출력하는 프로그램
 		Scanner scanner = new Scanner(System.in);
-		System.out.println("달을 입력하세요 ");
-		int month = scanner.nextInt();
-		Calender cal = new Calender();
 		
-		System.out.println(month+"은 " +cal.getMaxDaysOfMonth(month)+"까지 있습니다.");
+		System.out.println("반복횟수를 입력하세요");
+		int repeat = scanner.nextInt();
+		
+		for(int i= 0; i<repeat; i++) {
+			System.out.println("달을 입력하세요 ");
+			int month = scanner.nextInt();
+			System.out.println(month+"은 " +cal.getMaxDaysOfMonth(month)+"까지 있습니다.");
+			
+		}
+		System.out.println("Bye!");
+
 		scanner.close();
 	}
 
