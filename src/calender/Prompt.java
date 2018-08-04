@@ -46,16 +46,13 @@ public class Prompt {
 			System.out.print("MONTH >");
 			month = scanner.nextInt();
 			
-			System.out.println("첫째날의 요일을 적어주세요");
-			String str_weekDay = scanner.next();
-			weekDay = parseDay(str_weekDay);
 			
 			
 			if (month > 12 || month <1) {
 				System.out.println("잘못된 입력");
 				continue;
 			}
-			cal.printSample(year, month,weekDay);
+			cal.printSample(year, month);
 		}
 		System.out.println("Bye!");
 
