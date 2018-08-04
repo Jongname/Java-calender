@@ -1,9 +1,37 @@
 package calender;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.HashMap;
+
 public class Calender {
 	private final int[] MAX_DAYS = {0, 31, 28, 31, 30, 31, 30, 31, 30, 31, 30, 31 };
 	private final int[] LEAP_MAX_DAYS = {0, 31, 29, 31, 30, 31, 30, 31, 30, 31, 30, 31 };
 
+	
+	private HashMap <Date, String> planMap; 
+	
+	public Calender() {
+		planMap = new HashMap<Date, String>();
+	}
+	
+	/**
+	 * 
+	 * @param date ex " 2017 - 06- 28"
+	 * @param plan
+	 * @throws ParseException 
+	 */
+	public void resisterPlan(String strdate, String plan) throws ParseException {
+		Date date = new SimpleDateFormat("yyyy-MM-dd").parse(strdate);
+		//System.out.println(date);
+		planMap.put(date, plan);
+	}
+	public String searchPlan(String strdate) throws ParseException {
+		Date date = new SimpleDateFormat("yyyy-MM-dd").parse(strdate);
+		String plan = planMap.get(date);
+		return plan;
+	}
 	public boolean isLeapYear(int year) {
 		if(year%4==0 && (year%100!=0 || year%400 ==0)) {
 			return true;
@@ -72,7 +100,7 @@ public class Calender {
 			int delta = getMaxDaysOfMonth(year, i);
 			count +=delta;
 		}
-		count += day-1;
+		count += day;
 		
 		int weekday = (count+SWEEKDAY) %7;
 		return weekday;
