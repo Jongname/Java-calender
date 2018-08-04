@@ -1,5 +1,7 @@
 package calender;
 
+import java.util.Scanner;
+
 public class Calender {
 
 	public static void main(String[] args) {
@@ -11,6 +13,16 @@ public class Calender {
 		System.out.println(" 8  9 10 11 12 13 14");
 		System.out.println("15 16 17 18 19 20 21");
 		System.out.println("22 23 24 25 26 27 28");
+		
+		
+		//숫자를 입력받아 해당 달의 최대 일수를 출력하는 프로그램
+		Scanner scanner = new Scanner(System.in);
+		System.out.println("달을 입력하세요 ");
+		int month = scanner.nextInt();
+		
+		int[] maxDays = {31, 28, 31,30,31,30 , 31,30,31,30,31};
+		System.out.println(month+"은 " +maxDays[month-1]+"까지 있습니다.");
+		scanner.close();
 	}
 
 }
